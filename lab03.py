@@ -1,6 +1,5 @@
 #Lab 03
 #Nealson Setiawan
-
 def multiply(x,y):
     if y != 0:
         if (y-1 == 0):
@@ -11,26 +10,6 @@ def multiply(x,y):
     else:
         return 0
 
-#def collectOddValuesOld(listOfInt):
-    x = 0
-    for i in range(len(listOfInt)):
-        if(listOfInt[i] % 2 != 1):
-            if i == 0:
-                x = -1
-            else:
-                x = i
-            break
-    
-    if (x != 0):
-        if i == 0:
-            listOfInt.pop(0)
-        else:
-            listOfInt.pop(i)
-            
-        return (collectOddValues(listOfInt))
-    else:
-        return listOfInt
-
 def collectOddValues(listOfInt):
     n = []
     if(listOfInt != []):
@@ -40,30 +19,19 @@ def collectOddValues(listOfInt):
         return n + collectOddValues(listOfInt[1:])
     else:
         return []
-#def countIntsOld(listOfInt, num):
-    x = 0
-    for i in range(len(listOfInt)):
-        if(listOfInt[i] != num):
-            if i == 0:
-                x = -1
-            else:
-                x = i
-            break
-    
-    if (x != 0):
-        if i == 0:
-            listOfInt.pop(0)
-        else:
-            listOfInt.pop(i)  
-        return countInts(listOfInt, num)
-    else:
-        return len(listOfInt)
 
 def countInts(listOfInt, num):
     n = 0
     if(listOfInt != []):
-        if listOfInt[0] == num:
-            n = 1
+        if isinstance(listOfInt[0],float):
+            n = 0
+            
+        elif isinstance(listOfInt[0],int):
+            if listOfInt[0] == num:
+                n = 1
+
+        else:
+            n = 0
         return n + countInts(listOfInt[1:],num)
 
     else:
@@ -91,8 +59,42 @@ def removeSubString(s,sub):
     else:
         return ""
 
-assert removeSubString("Lololololmm", "lol") == "Loomm"
-assert countInts([1,2,3,4,3,2,1], 2) == 2
-assert collectOddValues([0,1,2,3,4,5]) == [1,3,5]
-assert reverseString("Hello") == "olleH"
-assert reverseString("CMPSC9") == "9CSPMC"
+'''def collectOddValuesOld(listOfInt):
+    x = 0
+    for i in range(len(listOfInt)):
+        if(listOfInt[i] % 2 != 1):
+            if i == 0:
+                x = -1
+            else:
+                x = i
+            break
+    
+    if (x != 0):
+        if i == 0:
+            listOfInt.pop(0)
+        else:
+            listOfInt.pop(i)
+            
+        return (collectOddValues(listOfInt))
+    else:
+        return listOfInt
+
+def countIntsOld(listOfInt, num):
+    x = 0
+    for i in range(len(listOfInt)):
+        if(listOfInt[i] != num):
+            if i == 0:
+                x = -1
+            else:
+                x = i
+            break
+    
+    if (x != 0):
+        if i == 0:
+            listOfInt.pop(0)
+        else:
+            listOfInt.pop(i)  
+        return countInts(listOfInt, num)
+    else:
+        return len(listOfInt)
+'''
